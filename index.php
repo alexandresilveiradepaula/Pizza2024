@@ -61,6 +61,34 @@ $clientes = $stmt->fetchAll();
         <a href="cadastro.php">Cadastrar Cliente</a>
     </nav>
 
+    <h1>Registrar Pedido</h1>
+    <form action="index.php" method="post">
+        <label for="cliente_id">Selecione o cliente:</label>
+        <select id="cliente-id" name="cliente_id" onchange="preencherDadosCliente()" required>
+            <option_value="">Escolha o Cliente</option>
+            <?php foreach($clientes as $cliente):?>
+            <option_value="<?php echo $cliente['id']; ?>".<?php echo $cliente['nome_cliente'];?></option>
+            <?php endforeach;?>
+    </select><br>
+
+    <label for="telefone">Telefone</label>
+    <input type="text" id="telefone" name="telefone" disabled><br>
+
+    <label for="endereco">Endereco</label>
+    <input type="text" id="endereco" name="endereco" disabled><br>
+
+    <label for="sabor_pizza">Sabor da Pizza:</label>
+    <input type="text" id="sabor_pizza" name="sabor_piza" required><br>
+
+    <label for="quantidade_pizza">Quantidade:</label><br>
+    <input type="number" name="quantidade_pizza" id="quantidade_pizza" required><br>
+
+    <label for="observacao">Observação </label><br>
+    <input type="text" id="observacao" name="observacao">
+
+    <button type="submit">Registrar Pedido</button>
+    </form>
+
     
     
 </body>
